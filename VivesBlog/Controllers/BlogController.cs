@@ -2,10 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using VivesBlog.Model;
 
 namespace VivesBlog.Controllers
 {
-	public class BlogController : Controller
+    public class BlogController : Controller
 	{
 		private readonly DB _database;
 
@@ -120,8 +121,8 @@ namespace VivesBlog.Controllers
 			article ??= new Article();
 
 			var authors = _database.People
-				.OrderBy(a => a.Name1)
-				.ThenBy(a => a.Name2)
+				.OrderBy(a => a.FirstName)
+				.ThenBy(a => a.LastName)
 				.ToList();
 
 			var articleModel = new ArticleModel

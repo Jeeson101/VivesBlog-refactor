@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using VivesBlog.Model;
 
 namespace VivesBlog.Controllers
 {
-	public class PeopleController : Controller
+    public class PeopleController : Controller
 	{
 
 		private readonly DB _database;
@@ -71,8 +72,8 @@ namespace VivesBlog.Controllers
 
 			var dbPerson = _database.People.Single(p => p.Id == person.Id);
 
-			dbPerson.Name1 = person.Name1;
-			dbPerson.Name2 = person.Name2;
+			dbPerson.FirstName = person.FirstName;
+			dbPerson.LastName = person.LastName;
 
 			_database.SaveChanges();
 

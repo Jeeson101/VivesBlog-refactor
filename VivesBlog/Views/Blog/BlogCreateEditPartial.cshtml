@@ -5,7 +5,7 @@
 		new
 		{
 			Id = a.Id, 
-			Name = $"{a.Name1} {a.Name2}"
+			Name = $"{a.FirstName} {a.LastName}"
 		});
 
 	var authorList = new SelectList(authors, "Id", "Name", Model.Article.AuthorId);
